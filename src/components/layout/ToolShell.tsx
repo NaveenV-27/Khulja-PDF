@@ -31,7 +31,7 @@ export default function ToolShell({ title, subtitle, slug, options, children }: 
 
       {/* ── Top bar with back button ── */}
       <div className="flex items-center justify-between px-4 md:px-6 py-3"
-        style={{ borderBottom: '1px solid var(--border)', background: 'var(--bg-2)' }}>
+        style={{ borderBottom: '1px solid var(--border)', background: 'var(--bg-2)', backdropFilter: 'blur(12px) saturate(180%)', WebkitBackdropFilter: 'blur(12px) saturate(180%)' }}>
         <Link to="/tools" className="flex items-center gap-2 text-xs font-semibold transition-all"
           style={{ color: 'var(--text-2)', fontFamily: 'Dosis, sans-serif' }}
           onMouseEnter={e => (e.currentTarget.style.color = 'var(--accent)')}
@@ -71,7 +71,7 @@ export default function ToolShell({ title, subtitle, slug, options, children }: 
       {/* ── Mobile options drawer ── */}
       {options && optionsOpen && (
         <div className="lg:hidden mx-4 mt-3 rounded-2xl p-4 relative"
-          style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', boxShadow: 'var(--shadow-card)' }}>
+          style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', boxShadow: 'var(--shadow-card)', backdropFilter: 'blur(16px) saturate(180%)', WebkitBackdropFilter: 'blur(16px) saturate(180%)' }}>
           <div className="flex items-center justify-between mb-3">
             <p className="text-xs font-semibold uppercase tracking-widest"
               style={{ color: 'var(--text-3)', fontFamily: 'Dosis, sans-serif' }}>Options</p>

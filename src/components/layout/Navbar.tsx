@@ -19,7 +19,7 @@ export default function Navbar() {
   useEffect(() => setMobileOpen(false), [location])
 
   const navBg = scrolled
-    ? isDark ? 'rgba(15,15,15,0.92)' : 'rgba(250,250,250,0.92)'
+    ? isDark ? 'rgba(7,13,24,0.85)' : 'rgba(240,247,255,0.82)'
     : 'transparent'
 
   return (
@@ -28,8 +28,9 @@ export default function Navbar() {
         style={{
           background: navBg,
           borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
-          backdropFilter: scrolled ? 'blur(16px)' : 'none',
-          transition: 'all 0.3s ease',
+          backdropFilter: scrolled ? 'blur(16px) saturate(180%)' : 'none',
+          WebkitBackdropFilter: scrolled ? 'blur(16px) saturate(180%)' : 'none',
+          transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
         }}
         className="fixed top-0 left-0 right-0 z-50"
       >
@@ -37,7 +38,7 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5">
-            <img src={logo} alt="PDFKholo" className="h-8 w-auto" />
+            <img src={logo} alt="KhuljaDoc" className="h-8 w-auto" />
           </Link>
 
           {/* Right */}

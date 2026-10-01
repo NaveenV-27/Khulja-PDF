@@ -6,40 +6,42 @@
 
 /* ── Light Mode ─────────────────────────────────────────── */
 :root {
-  --bg:           #757575;
-  --bg-2:         #dc9512;
-  --bg-card:      #1f1f1f;
-  --bg-card-hover:#515151;
-  --border:       #505050;
-  --border-hover: #f6efe3;
-  --text:         #fefefe;
-  --text-2:       #ffffff;
-  --text-3:       #ffffff;
-  --accent:       #ffbc49;
-  --accent-2:     #ffffff;
-  --accent-glow:  rgba(88, 88, 88, 0.18);
-  --accent-dim:   rgba(56, 56, 54, 0.08);
-  --shadow-card:  0 2px 14px rgba(0,0,0,0.06);
-  --shadow-hover: 0 8px 30px rgba(240, 240, 240, 0.18);
+  --bg:           #F0F7FF;
+  --bg-2:         #E0EFFF;
+  --bg-card:      rgba(255, 255, 255, 0.75);
+  --bg-card-hover:rgba(255, 255, 255, 0.9);
+  --border:       rgba(186, 224, 255, 0.6);
+  --border-hover: #0284C7;
+  --text:         #0B192C;
+  --text-2:       #385170;
+  --text-3:       #8294AA;
+  --accent:       #0284C7;
+  --accent-2:     #0369A1;
+  --accent-hover: #0369A1;
+  --accent-glow:  0 0 20px rgba(56, 189, 248, 0.35);
+  --accent-dim:   rgba(2, 132, 199, 0.12);
+  --shadow-card:  0 8px 32px rgba(15, 76, 129, 0.08);
+  --shadow-hover: 0 12px 40px rgba(15, 76, 129, 0.15);
 }
 
 /* ── Dark Mode ──────────────────────────────────────────── */
 .dark {
-  --bg:           #0F0F0F;
-  --bg-2:         #181818;
-  --bg-card:      #1C1C1C;
-  --bg-card-hover:#222222;
-  --border:       #2A2A2A;
-  --border-hover: #FBBF24;
-  --text:         #be9c2d;
-  --text-2:       #999999;
-  --text-3:       #555555;
-  --accent:       #FBBF24;
-  --accent-2:     #F59E0B;
-  --accent-glow:  rgba(251,191,36,0.16);
-  --accent-dim:   rgba(251,191,36,0.08);
-  --shadow-card:  0 2px 16px rgba(0,0,0,0.45);
-  --shadow-hover: 0 8px 30px rgba(251,191,36,0.16);
+  --bg:           #070D18;
+  --bg-2:         #0E1A2E;
+  --bg-card:      rgba(14, 26, 46, 0.65);
+  --bg-card-hover:rgba(14, 26, 46, 0.85);
+  --border:       rgba(56, 189, 248, 0.2);
+  --border-hover: #38BDF8;
+  --text:         #F0F8FF;
+  --text-2:       #94A3B8;
+  --text-3:       #475569;
+  --accent:       #38BDF8;
+  --accent-2:     #7DD3FC;
+  --accent-hover: #7DD3FC;
+  --accent-glow:  0 0 24px rgba(56, 189, 248, 0.45);
+  --accent-dim:   rgba(56, 189, 248, 0.15);
+  --shadow-card:  0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 12px 40px rgba(56, 189, 248, 0.2);
 }
 
 /* ── Base ───────────────────────────────────────────────── */
@@ -54,18 +56,27 @@ body {
 }
 
 /* ── Scrollbar ──────────────────────────────────────────── */
-::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-2); }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
-::-webkit-scrollbar-thumb:hover { background: var(--accent); }
-::selection { background: var(--accent); color: #fff; }
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 99px;
+  transition: background 0.2s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-hover);
+}
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
 
 /* ── Typography util ────────────────────────────────────── */
 .font-display { font-family: 'Dosis', sans-serif; }
 .font-mono    { font-family: 'JetBrains Mono', monospace; }
 
 .text-gradient {
-  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 60%, #FCD34D 100%);
+  background: linear-gradient(135deg, #0284C7 0%, #38BDF8 60%, #7DD3FC 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -76,12 +87,14 @@ body {
   background: var(--bg-card);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-card);
-  transition: all 0.22s ease;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .card-glass:hover {
   border-color: var(--border-hover);
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover), var(--accent-glow);
+  transform: translateY(-3px);
   background: var(--bg-card-hover);
 }
 
@@ -92,16 +105,19 @@ body {
   font-family: 'Dosis', sans-serif;
   font-weight: 600;
   border-radius: 10px;
-  transition: all 0.18s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   border: none;
   display: inline-flex;
   align-items: center;
 }
 .btn-primary:hover {
-  background: var(--accent-2);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px var(--accent-glow);
+  background: var(--accent-hover);
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: var(--accent-glow);
+}
+.btn-primary:active {
+  transform: scale(0.98);
 }
 .btn-primary:disabled {
   opacity: 0.5;
@@ -130,9 +146,10 @@ body {
 /* ── Hero ───────────────────────────────────────────────── */
 .hero-mesh {
   background:
-    radial-gradient(ellipse 55% 50% at 12% 38%, rgba(245,158,11,0.12) 0%, transparent 65%),
-    radial-gradient(ellipse 45% 55% at 88% 68%, rgba(251,191,36,0.07) 0%, transparent 60%),
-    var(--bg);  /* ← now uses theme variable */
+    radial-gradient(ellipse 55% 50% at 12% 38%, rgba(56, 189, 248, 0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 45% 55% at 88% 68%, rgba(2, 132, 199, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 45% at 50% 50%, rgba(56, 189, 248, 0.08) 0%, transparent 70%),
+    var(--bg);
 }
 /* ── Tool placeholder icon ──────────────────────────────── */
 .tool-icon-wrap {

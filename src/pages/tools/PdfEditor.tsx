@@ -578,15 +578,11 @@ export default function PdfEditor() {
             {/* PDF panel */}
             <div ref={panelRef}
               className="rounded-2xl select-none flex-1"
-              style={{background:'#2a2a2a',border:'1px solid var(--border)',overflow:'auto',minHeight:0,cursor:cursorMap[tool]}}
-            >
-            <div ref={panelRef}
-              className="rounded-2xl select-none flex-1"
               style={{background:'#2a2a2a', border:'1px solid var(--border)', overflow:'auto', minHeight:0, cursor:cursorMap[tool]}}
               onMouseMove={onMouseMove}
               onMouseUp={onMouseUp}
-             onMouseLeave={onMouseUp}
-              ></div>
+              onMouseLeave={onMouseUp}
+            >
               <div style={{minWidth:'100%',minHeight:'100%',display:'flex',alignItems:'flex-start',justifyContent:'center',padding:24,boxSizing:'border-box'}}>
                 <div ref={containerRef}
                   className="relative"

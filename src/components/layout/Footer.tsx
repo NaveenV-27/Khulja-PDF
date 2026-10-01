@@ -29,7 +29,7 @@ export default function Footer() {
                 </svg>
               </div>
               <span style={{ fontFamily: 'Dosis, sans-serif', fontWeight: 700, fontSize: 18, color: 'var(--text)', letterSpacing: '-0.02em' }}>
-                Pdf<span style={{ color: 'var(--accent)' }}>Kholo</span>
+                Khulja<span style={{ color: 'var(--accent)' }}>Doc</span>
               </span>
             </Link>
             <p className="text-sm leading-relaxed" style={{ color: 'var(--text-2)', maxWidth: '260px' }}>
@@ -73,7 +73,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-3" style={{ borderTop: '1px solid var(--border)' }}>
           <p className="text-xs flex items-center gap-1.5" style={{ color: 'var(--text-3)', fontFamily: 'Dosis, sans-serif' }}>
-            Made with <Heart size={11} fill="currentColor" style={{ color: 'var(--accent)' }} /> — PdfKholo © {new Date().getFullYear()}
+            Made with <Heart size={11} fill="currentColor" style={{ color: 'var(--accent)' }} /> — KhuljaDoc © {new Date().getFullYear()}
           </p>
           <p className="text-xs" style={{ color: 'var(--text-3)' }}>100% free · Open source · No ads</p>
         </div>

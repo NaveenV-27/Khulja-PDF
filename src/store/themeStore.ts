@@ -2,14 +2,28 @@ import { create } from 'zustand'
 
 interface ThemeStore { isDark: boolean; toggle: () => void }
 
+const NEW_KEY = 'khuljadoc-theme'
+const OLD_KEY = 'pdfkholo-theme'
+
 const apply = (dark: boolean) => {
   document.documentElement.classList.toggle('dark', dark)
-  localStorage.setItem('pdfkholo-theme', dark ? 'dark' : 'light')
+  localStorage.setItem(NEW_KEY, dark ? 'dark' : 'light')
 }
 
 const getInitial = () => {
-  const saved = localStorage.getItem('pdfkholo-theme')
+  // Try new key first
+  const saved = localStorage.getItem(NEW_KEY)
   if (saved) return saved === 'dark'
+
+  // Fallback to old key for existing users
+  const legacy = localStorage.getItem(OLD_KEY)
+  if (legacy) {
+    // Migrate to new key
+    localStorage.setItem(NEW_KEY, legacy)
+    return legacy === 'dark'
+  }
+
+  // Default to system preference
   return window.matchMedia('(prefers-color-scheme: dark)').matches
 }
 

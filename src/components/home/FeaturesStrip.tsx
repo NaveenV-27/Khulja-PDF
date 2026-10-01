@@ -4,7 +4,7 @@ import { ShieldCheck, Zap, WifiOff, Smartphone } from 'lucide-react'
 const features = [
   { Icon: ShieldCheck, title: 'Privacy Guaranteed', desc: 'Your files are processed entirely in your browser using WebAssembly. Nothing is ever uploaded to any server.', color: '#10B981', bg: 'rgba(16,185,129,0.1)' },
   { Icon: Zap,         title: 'Blazing Fast',       desc: 'All operations run client-side with native speed. No waiting for server round-trips or queues.',               color: '#FBBF24', bg: 'rgba(251,191,36,0.1)'  },
-  { Icon: WifiOff,     title: 'Works Offline',      desc: 'Once loaded, PdfKholo works without internet. Perfect for sensitive documents on air-gapped machines.',        color: '#8B5CF6', bg: 'rgba(139,92,246,0.1)' },
+  { Icon: WifiOff,     title: 'Works Offline',      desc: 'Once loaded, KhuljaDoc works without internet. Perfect for sensitive documents on air-gapped machines.',        color: '#8B5CF6', bg: 'rgba(139,92,246,0.1)' },
   { Icon: Smartphone,  title: 'Mobile Ready',       desc: 'Fully responsive on all devices. Available as an Android app from the Play Store — coming soon.',             color: '#3B82F6', bg: 'rgba(59,130,246,0.1)'  },
 ]
 
@@ -13,7 +13,7 @@ export default function FeaturesStrip() {
     <section className="py-20 px-5 md:px-8" style={{ background: 'var(--bg-2)' }}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-14">
-          <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: 'var(--accent)', fontFamily: 'Dosis, sans-serif' }}>Why PdfKholo</span>
+          <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: 'var(--accent)', fontFamily: 'Dosis, sans-serif' }}>Why KhuljaDoc</span>
           <h2 className="text-3xl md:text-4xl font-display font-800 mt-2 tracking-tight"
             style={{ fontFamily: 'Dosis, sans-serif', fontWeight: 800, color: 'var(--text)', letterSpacing: '-0.02em' }}>
             Built different.

@@ -1,61 +1,98 @@
 <p align="center">
-  <img src="public/favicon.svg" width="72" height="72" alt="PDFKholo Logo" />
+  <img src="public/favicon.svg" width="72" height="72" alt="KhuljaDoc Logo" />
 </p>
 
-<h1 align="center">PDFKholo ⚡</h1>
+<h1 align="center">KhuljaDoc ⚡</h1>
 
 <p align="center">
-  <i>Fast, clean PDF toolkit built with React + TypeScript + Vite.</i>
+  <i>Koi bhi PDF, Abhi Khulja — Instant access. Zero upload.</i>
 </p>
 
 <p align="center">
-  <a href="https://pdfkholo.tech" target="_blank">Live Demo</a> •
-  <a href="https://github.com/ayushcmd/pdfkholo" target="_blank">Repository</a>
+  <a href="https://khulja-pdf.vercel.app/" target="_blank">Live Demo</a> •
+  <a href="https://github.com/NaveenV-27/Khulja-PDF.git" target="_blank">Repository</a>
 </p>
 
 ---
 
-## ✨ Features
+## Overview
 
-- PDF Editor (text, draw, links, images)
-- PDF Compressor
-- Image to PDF
-- Merge PDF
-- Split PDF
-- Background Remove
-- QR Tools (Generate + Scan)
-- Resume Builder
-- DOCX to PDF
+KhuljaDoc is a futuristic, privacy-first PDF & image suite with a sky-blue glassmorphic design system. All 30+ tools run **100% in your browser** — your files never leave your device. No uploads, no accounts, no servers.
 
 ---
 
-##  Tech Stack
+## ✨ Tools (30+)
 
-- **Frontend:** React, TypeScript, Vite, TailwindCSS
-- **Icons/UI:** lucide-react
-- **Deployment:** Vercel
+| Category | Tools |
+|---|---|
+| **PDF** | PDF Editor, Compress PDF, Merge PDF, Split PDF, Rotate PDF, Watermark PDF, Redact PDF, Protect PDF, Unlock PDF |
+| **Convert** | Image → PDF, PDF → Images, PDF → Word, PDF → Excel, DOCX → PDF |
+| **Images** | Remove Background, Image Compress, Image Convert, Image Crop, Image Filters, Bulk Resize |
+| **Sign & Fill** | Sign PDF, Fill PDF Form |
+| **AI / OCR** | OCR PDF, ID Photo Generator, Passport Photo |
+| **Utilities** | QR Tools (Generate + Scan), Resume Builder, Color Picker, Unit Converter |
 
 ---
 
-##  Run Locally
+## 🎨 Design System
+
+- **Palette:** Sky-blue glassmorphic — light accent `#0284C7`, dark accent `#38BDF8`
+- **Glass cards:** `backdrop-filter: blur(16px) saturate(180%)` with `cubic-bezier(0.16, 1, 0.3, 1)` transitions
+- **Fonts:** Dosis (primary), JetBrains Mono (monospace)
+- **Themes:** Light & dark modes with system preference detection; preference persisted in `localStorage`
+
+---
+
+## 🛠 Tech Stack
+
+| Layer | Tech |
+|---|---|
+| **Frontend** | React 19, TypeScript 5, Vite 8 |
+| **Styling** | TailwindCSS 3, CSS custom properties |
+| **State** | Zustand 5 |
+| **PDF** | pdf-lib, pdfjs-dist, jsPDF |
+| **Images** | @imgly/background-removal, tesseract.js, html2canvas |
+| **Icons** | lucide-react |
+| **Routing** | react-router-dom v7 |
+| **Deployment** | Vercel |
+
+---
+
+## 🚀 Run Locally
 
 ```bash
-git clone https://github.com/ayushcmd/pdfkholo.git
-cd pdfkholo
+git clone https://github.com/NaveenV-27/Khulja-PDF.git
+cd Khulja-PDF
 npm install
 npm run dev
 ```
 
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
 ---
 
-##  Deployment
+## 📦 Build & Deploy
 
-Deploy easily on Vercel.
+```bash
+npm run build   # Production build → dist/
+npm run lint    # ESLint check
+npm run preview # Preview production build locally
+```
 
-Build settings (default Vite):
+**Vercel settings (Vite defaults):**
 - **Build Command:** `npm run build`
 - **Output Directory:** `dist`
+- **Install Command:** `npm install`
 
 ---
 
-<p align="center">Made with  by <a href="https://ayushcmd.me">Ayush Raj</a></p>
+## 🔒 Privacy
+
+- All processing is client-side via WebAssembly
+- Files never leave your device or touch any server
+- No account, login, or sign-up required
+- Works offline after initial load
+
+---
+
+<p align="center">Made with ❤️ — KhuljaDoc © 2026</p>

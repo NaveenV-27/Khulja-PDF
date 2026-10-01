@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Light Mode ─────────────────────────────────────────── */
+:root {
+  --bg:           #757575;
+  --bg-2:         #dc9512;
+  --bg-card:      #1f1f1f;
+  --bg-card-hover:#515151;
+  --border:       #505050;
+  --border-hover: #f6efe3;
+  --text:         #fefefe;
+  --text-2:       #ffffff;
+  --text-3:       #ffffff;
+  --accent:       #ffbc49;
+  --accent-2:     #ffffff;
+  --accent-glow:  rgba(88, 88, 88, 0.18);
+  --accent-dim:   rgba(56, 56, 54, 0.08);
+  --shadow-card:  0 2px 14px rgba(0,0,0,0.06);
+  --shadow-hover: 0 8px 30px rgba(240, 240, 240, 0.18);
+}
+
+/* ── Dark Mode ──────────────────────────────────────────── */
+.dark {
+  --bg:           #0F0F0F;
+  --bg-2:         #181818;
+  --bg-card:      #1C1C1C;
+  --bg-card-hover:#222222;
+  --border:       #2A2A2A;
+  --border-hover: #FBBF24;
+  --text:         #be9c2d;
+  --text-2:       #999999;
+  --text-3:       #555555;
+  --accent:       #FBBF24;
+  --accent-2:     #F59E0B;
+  --accent-glow:  rgba(251,191,36,0.16);
+  --accent-dim:   rgba(251,191,36,0.08);
+  --shadow-card:  0 2px 16px rgba(0,0,0,0.45);
+  --shadow-hover: 0 8px 30px rgba(251,191,36,0.16);
+}
+
+/* ── Base ───────────────────────────────────────────────── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Dosis', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-2); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+::selection { background: var(--accent); color: #fff; }
+
+/* ── Typography util ────────────────────────────────────── */
+.font-display { font-family: 'Dosis', sans-serif; }
+.font-mono    { font-family: 'JetBrains Mono', monospace; }
+
+.text-gradient {
+  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 60%, #FCD34D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Cards ──────────────────────────────────────────────── */
+.card-glass {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  transition: all 0.22s ease;
+}
+.card-glass:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+  background: var(--bg-card-hover);
+}
+
+/* ── Buttons ────────────────────────────────────────────── */
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  font-family: 'Dosis', sans-serif;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.18s ease;
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+}
+.btn-primary:hover {
+  background: var(--accent-2);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px var(--accent-glow);
+}
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  font-family: 'Dosis', sans-serif;
+  font-weight: 500;
+  border-radius: 10px;
+  transition: all 0.18s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+
+/* ── Hero ───────────────────────────────────────────────── */
+.hero-mesh {
+  background:
+    radial-gradient(ellipse 55% 50% at 12% 38%, rgba(245,158,11,0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 45% 55% at 88% 68%, rgba(251,191,36,0.07) 0%, transparent 60%),
+    var(--bg);  /* ← now uses theme variable */
+}
+/* ── Tool placeholder icon ──────────────────────────────── */
+.tool-icon-wrap {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+}
+.card-glass:hover .tool-icon-wrap { transform: scale(1.06); }
+
+/* ── Drop zone ──────────────────────────────────────────── */
+.drop-zone {
+  border: 2px dashed var(--border);
+  background: var(--bg-2);
+  border-radius: 16px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.drop-zone:hover, .drop-zone.active {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+
+/* ── Spinner ────────────────────────────────────────────── */
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner {
+  width: 22px; height: 22px;
+  border: 2.5px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+.spinner-lg {
+  width: 40px; height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+/* ── Progress bar ───────────────────────────────────────── */
+.progress-track {
+  height: 4px;
+  background: var(--border);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 99px;
+  transition: width 0.3s ease;
+}
+
+/* ── Animations ─────────────────────────────────────────── */
+.animate-fade-up        { opacity: 0; animation: fadeUp 0.6s ease-out 0.05s forwards; }
+.animate-fade-up-delay  { opacity: 0; animation: fadeUp 0.6s ease-out 0.2s  forwards; }
+.animate-fade-up-delay2 { opacity: 0; animation: fadeUp 0.6s ease-out 0.35s forwards; }
+.animate-fade-up-delay3 { opacity: 0; animation: fadeUp 0.6s ease-out 0.5s  forwards; }
+
+.float-icon { animation: float 6s ease-in-out infinite; }
+.float-icon:nth-child(2) { animation-delay: 1.2s; }
+.float-icon:nth-child(3) { animation-delay: 2.4s; }
+.float-icon:nth-child(4) { animation-delay: 0.6s; }
+.float-icon:nth-child(5) { animation-delay: 1.8s; }
+.float-icon:nth-child(6) { animation-delay: 3.0s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-14px) rotate(2deg); }
+  66%       { transform: translateY(-7px) rotate(-1deg); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+/* ── Tag badges ─────────────────────────────────────────── */
+.badge {
+  font-family: 'Syne', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+
+/* ── Tool page layout ───────────────────────────────────── */
+.tool-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr 260px;
+  gap: 0;
+  min-height: calc(100vh - 64px);
+}
+@media (max-width: 1024px) {
+  .tool-layout { grid-template-columns: 1fr; }
+}
+
+.tool-sidebar {
+  border-right: 1px solid var(--border);
+  background: var(--bg-2);
+  padding: 20px 14px;
+  position: sticky;
+  top: 64px;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+}
+
+.tool-main {
+  padding: 24px;
+  background: var(--bg);
+}
+
+.tool-options {
+  border-left: 1px solid var(--border);
+  background: var(--bg-2);
+  padding: 20px 16px;
+  position: sticky;
+  top: 64px;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+}
+
+/* ── File item ──────────────────────────────────────────── */
+.file-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.15s ease;
+  cursor: grab;
+}
+.file-item:hover { border-color: var(--accent); }
+.file-item:active { cursor: grabbing; }

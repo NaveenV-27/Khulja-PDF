@@ -32,13 +32,18 @@ import PassportPhoto from './pages/tools/PassportPhoto'
 import IdPhoto from './pages/tools/IdPhoto'
 import ImageCompress from './pages/tools/ImageCompress'
 import ImageConvert from './pages/tools/ImageConvert'
+import Prank from './pages/Prank'
+import { useDevToolSniffer } from './hooks/useDevToolSniffer'
 
 export default function App() {
+
+  useDevToolSniffer()
   return (
-    <BrowserRouter>
+    <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/caught-you" element={<Prank/>} />
         <Route path="/tools" element={<Tools />} />
         <Route path="/tools/compress" element={<Compress />} />
         <Route path="/tools/pdf-editor" element={<PdfEditor />} />
@@ -71,6 +76,6 @@ export default function App() {
         <Route path="/tools/image-convert" element={<ImageConvert />} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </>
   )
 }
